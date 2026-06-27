@@ -106,24 +106,26 @@ Security requirements if applicable.
 
 # Testing
 
-## Unit Test
+## Unit Tests
 
 ---
 
-## Integration Test
+## Integration Tests
 
 ---
 
-## System Test
+## System Tests
 
 ---
 
-# Acceptance Criteria
+## Acceptance Criteria
 
-The component is complete only when:
+A component is considered complete only when:
 
 - Specification approved
 - Implementation completed
-- Tests passed
+- Unit tests passed
+- Integration tests passed
+- System tests passed
 - Documentation updated
 
