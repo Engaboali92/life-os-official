@@ -1,46 +1,65 @@
 # worship module
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Modules Team
 
 ---
 
 # Purpose
 
-Define the worship module business domain.
+Define the complete business domain represented by this module.
 
 ---
 
-# Scope
+# Responsibilities
 
-This module owns its domain rules, operations, data meaning, and domain events.
-
----
-
-# Inputs
-
-- Domain requests
-- User actions routed through Application Layer
-- System events
+- Own business rules.
+- Own domain entities.
+- Own domain events.
+- Own business validation.
+- Coordinate internal services.
 
 ---
 
-# Processing
+# Public Commands
 
-- Validate domain rules
-- Execute domain behavior
-- Produce domain result
-- Emit domain events
-- Request persistence through Data Layer
+To be defined.
 
 ---
 
-# Outputs
+# Public Queries
 
-- Domain result
-- Domain event
-- Validation error
-- State change request
+To be defined.
+
+---
+
+# Internal Services
+
+To be defined.
+
+---
+
+# Domain Events
+
+To be defined.
+
+---
+
+# Workflows
+
+To be defined.
+
+---
+
+# Data Ownership
+
+To be defined.
+
+---
+
+# Business Rules
+
+To be defined.
 
 ---
 
@@ -52,18 +71,17 @@ This module owns its domain rules, operations, data meaning, and domain events.
 
 ---
 
-# Rules
+# Error Cases
 
-- No direct module-to-module dependency.
-- No direct database access.
-- No direct external integration.
-- Business rules remain inside the module.
+To be defined.
 
 ---
 
 # Acceptance Criteria
 
-- Inputs defined.
-- Outputs defined.
+- Commands documented.
+- Queries documented.
+- Services documented.
+- Events documented.
+- Workflows documented.
 - Business rules documented.
-- Tests defined.

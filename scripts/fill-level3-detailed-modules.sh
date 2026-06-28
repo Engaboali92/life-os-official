@@ -1,4 +1,12 @@
-# fitness module
+#!/usr/bin/env bash
+set -e
+
+for f in specifications/modules/*/*.md; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Modules Team
@@ -85,3 +93,12 @@ To be defined.
 - Events documented.
 - Workflows documented.
 - Business rules documented.
+EOT
+
+done
+
+git add specifications/modules scripts/fill-level3-detailed-modules.sh
+git commit -m "docs: add detailed module specifications"
+git push
+git tag v3.2-detailed-modules
+git push origin v3.2-detailed-modules
