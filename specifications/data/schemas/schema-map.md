@@ -1,90 +1,139 @@
-# schema map
+# Schema Map
+
+**Document ID:** LOS-DAT-SCH-001
 
 **Status:** Draft
+
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete persistence specification.
+The Schema Map defines the logical organization of persistent schemas used by Life OS.
+
+It establishes ownership boundaries, schema responsibilities, and relationships between persistent structures.
 
 ---
 
-# Ownership
+# Design Principles
 
-Specify the owner of this data object.
-
----
-
-# Structure
-
-To be defined.
+- Domain-oriented organization.
+- One owner per schema.
+- Clear separation of concerns.
+- Explicit relationships.
+- Backward-compatible evolution.
 
 ---
 
-# Fields
+# Schemas
 
-To be defined.
+## Core
+
+- users
+- logs
+- events
 
 ---
 
-# Validation Rules
+## Productivity
 
-To be defined.
+- habits
+- tasks
+- goals
+
+---
+
+## Health
+
+- health_records
+- medications
+- supplements
+
+---
+
+## Worship
+
+- prayers
+- quran_sessions
+- adhkar
+- fasting
+- charity
+
+---
+
+## Learning
+
+- courses
+- study_sessions
+- certifications
+
+---
+
+## Finance
+
+- accounts
+- budgets
+- transactions
+
+---
+
+## Family
+
+- family_members
+- family_events
+
+---
+
+## Work
+
+- projects
+- meetings
+- attendance
 
 ---
 
 # Relationships
 
-To be defined.
-
----
-
-# Lifecycle
-
-- Create
-- Read
-- Update
-- Delete
-- Archive
-
----
-
-# Indexing Strategy
-
-To be defined.
-
----
-
-# Repository Operations
-
-To be defined.
+- Every business schema references users.
+- Logs reference business entities.
+- Events reference business entities.
+- Cross-schema references are explicit and versioned.
 
 ---
 
 # Constraints
 
-To be defined.
+- Primary keys use UUID.
+- Foreign keys enforce ownership.
+- Cascading deletes are prohibited.
+- Historical data remains immutable.
+
+---
+
+# Indexing Strategy
+
+- Primary keys indexed.
+- Foreign keys indexed.
+- Frequently queried timestamps indexed.
+- Composite indexes documented per schema.
 
 ---
 
 # Security
 
-To be defined.
-
----
-
-# Backup
-
-To be defined.
+- Schema ownership enforced.
+- Authorization required.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Structure documented.
-- Ownership documented.
-- Validation documented.
+The Schema Map is complete only when:
+
+- Schemas documented.
 - Relationships documented.
-- Repository operations documented.
+- Constraints documented.
+- Index strategy documented.
+- Security documented.
