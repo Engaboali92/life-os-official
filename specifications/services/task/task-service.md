@@ -1,92 +1,129 @@
-# task service
+# Task Service
+
+**Document ID:** LOS-SRV-TSK-001
 
 **Status:** Draft
-**Owner:** Backend Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Provide a reusable application capability.
+The Task Service provides the application-facing business service responsible for creating, updating, scheduling, completing, and reporting tasks.
+
+It orchestrates task-related operations without owning persistence or infrastructure concerns.
 
 ---
 
 # Responsibilities
 
-- Execute reusable logic.
-- Coordinate lower-level operations.
-- Return deterministic results.
-- Never own business rules.
+- Validate service requests.
+- Coordinate task operations.
+- Execute task business workflows.
+- Request persistence.
+- Publish domain events.
+- Return standardized service responses.
 
 ---
 
 # Public Operations
 
-To be defined.
+- CreateTask
+- UpdateTask
+- DeleteTask
+- CompleteTask
+- ReopenTask
+- ArchiveTask
+- GetTask
+- ListTasks
+- GetTaskStatistics
+- GetTaskDashboard
 
 ---
 
 # Inputs
 
-To be defined.
+- Authenticated user context
+- Task request DTO
+- System timestamp
 
 ---
 
 # Outputs
 
-To be defined.
-
----
-
-# Validation
-
-To be defined.
-
----
-
-# Internal Processing
-
-To be defined.
+- Service response
+- Validation errors
+- Updated task state
+- Domain events
 
 ---
 
 # Dependencies
 
-- Kernel
-- Data
-- Other documented services only
-
----
-
-# Events Produced
-
-To be defined.
+- Work Module
+- Life Module
+- Kernel Layer
+- Data Layer
 
 ---
 
 # Error Handling
 
-To be defined.
+- Invalid request
+- Validation failure
+- Duplicate task
+- Task not found
+- Persistence failure
+- Authorization failure
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Command execution under 200 ms excluding persistence.
+- Query operations support pagination.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging required for write operations.
+
+---
+
+# Testing
+
+## Unit Tests
+
+- Service validation
+- Operation routing
+- Error handling
+
+---
+
+## Integration Tests
+
+- Module interaction
+- Data persistence
+- Event publication
+
+---
+
+## System Tests
+
+- Complete task lifecycle
 
 ---
 
 # Acceptance Criteria
 
-- Operations documented.
-- Inputs documented.
-- Outputs documented.
-- Dependencies documented.
-- Events documented.
-- Errors documented.
+The Task Service is complete only when:
+
+- Operations documented
+- Dependencies documented
+- Error handling documented
+- Tests passed
+- Documentation approved
