@@ -1,90 +1,104 @@
-# repository specification
+# Repository Specification
+
+**Document ID:** LOS-DAT-REP-001
 
 **Status:** Draft
+
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete persistence specification.
+The Repository layer provides the abstraction between business logic and persistent storage.
+
+Repositories expose collection-oriented interfaces while hiding storage implementation details.
 
 ---
 
-# Ownership
+# Responsibilities
 
-Specify the owner of this data object.
-
----
-
-# Structure
-
-To be defined.
-
----
-
-# Fields
-
-To be defined.
+- Persist entities.
+- Retrieve entities.
+- Update entities.
+- Archive entities.
+- Execute transactional operations.
+- Enforce repository contracts.
 
 ---
 
-# Validation Rules
+# Repository Interfaces
 
-To be defined.
+- UserRepository
+- HabitRepository
+- TaskRepository
+- GoalRepository
+- LogRepository
+- EventRepository
 
 ---
 
-# Relationships
-
-To be defined.
-
----
-
-# Lifecycle
+# Standard Operations
 
 - Create
-- Read
+- FindById
+- FindAll
 - Update
-- Delete
 - Archive
+- Exists
+- Count
+- DeleteLogical
 
 ---
 
-# Indexing Strategy
+# Query Rules
 
-To be defined.
+- Pagination required.
+- Filtering supported.
+- Sorting supported.
+- Deterministic ordering.
 
 ---
 
-# Repository Operations
+# Transactions
 
-To be defined.
+- Atomic commits.
+- Rollback on failure.
+- Consistency guaranteed.
 
 ---
 
 # Constraints
 
-To be defined.
+- No business logic.
+- No infrastructure leakage.
+- Entity validation occurs before persistence.
+- Repositories return domain entities only.
+
+---
+
+# Performance
+
+- Indexed lookups.
+- Batched writes where applicable.
+- Lazy loading prohibited unless documented.
 
 ---
 
 # Security
 
-To be defined.
-
----
-
-# Backup
-
-To be defined.
+- Ownership enforced.
+- Authorization validated before persistence.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Structure documented.
-- Ownership documented.
-- Validation documented.
-- Relationships documented.
-- Repository operations documented.
+The Repository Specification is complete only when:
+
+- Interfaces documented.
+- Operations documented.
+- Constraints documented.
+- Performance documented.
+- Security documented.
