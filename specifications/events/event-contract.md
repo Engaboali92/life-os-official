@@ -1,96 +1,107 @@
-# event contract
+# Event Contract
+
+**Document ID:** LOS-EVT-001
 
 **Status:** Draft
-**Owner:** Architecture Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete event specification.
+The Event Contract defines the standard structure, lifecycle, validation rules, and guarantees for every domain event produced within Life OS.
 
 ---
 
-# Event Definition
+# Responsibilities
 
-Events represent facts that already happened inside or around Life OS.
-
----
-
-# Event Naming
-
-To be defined.
+- Standardize event structure.
+- Ensure interoperability.
+- Support asynchronous processing.
+- Preserve event history.
+- Support event replay.
 
 ---
 
-# Event Schema
+# Event Structure
 
-- event_id
-- event_type
-- source
-- timestamp
-- correlation_id
-- causation_id
-- payload
-- metadata
-
----
-
-# Producers
-
-To be defined.
+| Field | Type | Required |
+|------|------|----------|
+| id | UUID | Yes |
+| eventType | String | Yes |
+| aggregateType | String | Yes |
+| aggregateId | UUID | Yes |
+| userId | UUID | Yes |
+| version | Integer | Yes |
+| timestamp | Timestamp | Yes |
+| payload | JSON | Yes |
+| correlationId | UUID | No |
+| causationId | UUID | No |
 
 ---
 
-# Consumers
+# Lifecycle
 
-To be defined.
+Created
 
----
+↓
 
-# Payload
+Validated
 
-To be defined.
+↓
 
----
+Published
 
-# Processing
+↓
 
-To be defined.
+Consumed
 
----
+↓
 
-# Storage
-
-To be defined.
+Archived
 
 ---
 
-# Retention
+# Validation Rules
 
-To be defined.
+- Event type must be registered.
+- Payload must satisfy schema.
+- Version must be supported.
+- Aggregate identifier must exist.
 
 ---
 
-# Error Handling
+# Delivery Guarantees
 
-To be defined.
+- At-least-once delivery.
+- Ordered within the same aggregate.
+- Idempotent consumers required.
+
+---
+
+# Constraints
+
+- Events are immutable.
+- Payload cannot be modified.
+- Version never decreases.
 
 ---
 
 # Security
 
-- Events must not expose secrets.
-- Sensitive payloads must be protected.
-- Event access must follow authorization rules.
+- Authorized publishers only.
+- Authorized consumers only.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Event names documented.
-- Schema documented.
-- Producers documented.
-- Consumers documented.
-- Payloads documented.
-- Security rules documented.
+The Event Contract is complete only when:
+
+- Structure documented.
+- Lifecycle documented.
+- Validation documented.
+- Delivery guarantees documented.
+- Security documented.
