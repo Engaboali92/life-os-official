@@ -1,66 +1,92 @@
 # task service
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Backend Team
 
 ---
 
 # Purpose
 
-Define the reusable application capability provided by task service.
+Provide a reusable application capability.
 
 ---
 
-# Scope
+# Responsibilities
 
-The service coordinates reusable operations without owning module business rules.
+- Execute reusable logic.
+- Coordinate lower-level operations.
+- Return deterministic results.
+- Never own business rules.
+
+---
+
+# Public Operations
+
+To be defined.
 
 ---
 
 # Inputs
 
-- Application requests
-- Module requests
-- Kernel service requests
-
----
-
-# Processing
-
-- Receive service request
-- Validate request structure
-- Coordinate required operation
-- Return structured result
+To be defined.
 
 ---
 
 # Outputs
 
-- Service result
-- Service error
-- Event request
-- Data request
+To be defined.
+
+---
+
+# Validation
+
+To be defined.
+
+---
+
+# Internal Processing
+
+To be defined.
 
 ---
 
 # Dependencies
 
-- Application Layer
-- Kernel Layer
-- Data Layer when required
+- Kernel
+- Data
+- Other documented services only
 
 ---
 
-# Rules
+# Events Produced
 
-- No UI logic.
-- No direct external integration.
-- No business domain ownership unless delegated by module contract.
+To be defined.
+
+---
+
+# Error Handling
+
+To be defined.
+
+---
+
+# Performance Requirements
+
+To be defined.
+
+---
+
+# Security
+
+To be defined.
 
 ---
 
 # Acceptance Criteria
 
-- Service contract defined.
-- Inputs and outputs defined.
-- Tests defined.
+- Operations documented.
+- Inputs documented.
+- Outputs documented.
+- Dependencies documented.
+- Events documented.
+- Errors documented.

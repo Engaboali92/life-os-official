@@ -1,4 +1,12 @@
-# schedule service
+#!/usr/bin/env bash
+set -e
+
+for f in specifications/services/*/*.md; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Backend Team
@@ -90,3 +98,12 @@ To be defined.
 - Dependencies documented.
 - Events documented.
 - Errors documented.
+EOT
+
+done
+
+git add specifications/services scripts/fill-level4-detailed-services.sh
+git commit -m "docs: add detailed service specifications"
+git push
+git tag v4.2-detailed-services
+git push origin v4.2-detailed-services
