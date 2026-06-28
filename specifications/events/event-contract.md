@@ -1,71 +1,96 @@
 # event contract
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Architecture Team
 
 ---
 
 # Purpose
 
-Define event behavior for event contract.
+Define the complete event specification.
 
 ---
 
-# Event Rule
+# Event Definition
 
-Events describe something that already happened.
+Events represent facts that already happened inside or around Life OS.
 
 ---
 
-# Event Structure
+# Event Naming
+
+To be defined.
+
+---
+
+# Event Schema
 
 - event_id
 - event_type
 - source
 - timestamp
-- payload
 - correlation_id
+- causation_id
+- payload
+- metadata
 
 ---
 
-# Inputs
+# Producers
 
-- Domain result
-- System result
-- Automation result
-- Integration result
+To be defined.
+
+---
+
+# Consumers
+
+To be defined.
+
+---
+
+# Payload
+
+To be defined.
 
 ---
 
 # Processing
 
-- Publish event
-- Route event
-- Store event when required
-- Trigger subscribers
+To be defined.
 
 ---
 
-# Outputs
+# Storage
 
-- Published event
-- Event log
-- Automation trigger
+To be defined.
 
 ---
 
-# Rules
+# Retention
 
-- Events must be immutable.
-- Events must be named clearly.
-- Events must not contain secrets.
-- Consumers must not depend on hidden event fields.
+To be defined.
+
+---
+
+# Error Handling
+
+To be defined.
+
+---
+
+# Security
+
+- Events must not expose secrets.
+- Sensitive payloads must be protected.
+- Event access must follow authorization rules.
 
 ---
 
 # Acceptance Criteria
 
-- Event names defined.
-- Payloads defined.
-- Producers defined.
-- Consumers defined.
+- Event names documented.
+- Schema documented.
+- Producers documented.
+- Consumers documented.
+- Payloads documented.
+- Security rules documented.

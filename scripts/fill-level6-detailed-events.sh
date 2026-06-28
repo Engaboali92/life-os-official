@@ -1,4 +1,12 @@
-# system events
+#!/usr/bin/env bash
+set -e
+
+find specifications/events -name "*.md" | while read -r f; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Architecture Team
@@ -94,3 +102,12 @@ To be defined.
 - Consumers documented.
 - Payloads documented.
 - Security rules documented.
+EOT
+
+done
+
+git add specifications/events scripts/fill-level6-detailed-events.sh
+git commit -m "docs: add detailed event specifications"
+git push
+git tag v6.2-detailed-events
+git push origin v6.2-detailed-events
