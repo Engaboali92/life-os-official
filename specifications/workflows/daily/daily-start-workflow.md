@@ -1,99 +1,121 @@
-# daily start workflow
+# Daily Start Workflow
+
+**Document ID:** LOS-WFL-DAY-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Daily Start Workflow initializes the operational state for a new day across Life OS.
 
 ---
 
 # Trigger
 
-To be defined.
+Scheduled daily execution at the configured start-of-day time.
 
 ---
 
 # Preconditions
 
-To be defined.
+- User account is active.
+- Scheduler is operational.
+- Previous workflow execution completed or expired.
 
 ---
 
 # Inputs
 
-To be defined.
+- User context
+- Current date
+- Current timezone
+- Scheduler metadata
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Start workflow execution.
+2. Resolve current local date.
+3. Verify user availability.
+4. Create daily context.
+5. Initialize recurring habits.
+6. Initialize scheduled tasks.
+7. Initialize daily goals.
+8. Publish daily-started event.
+9. Persist execution results.
+10. Complete workflow.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Existing daily context.
+- Missed execution recovery.
+- Recurring item generation.
 
 ---
 
 # Outputs
 
-To be defined.
+- Daily context
+- Generated habits
+- Generated tasks
+- Generated events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- daily-started
+- habits-generated
+- tasks-generated
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Retry transient failures.
+- Abort invalid requests.
+- Log execution failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Exponential backoff.
+- Maximum retry count configurable.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Complete under 5 seconds excluding persistence.
 
 ---
 
 # Security
 
-To be defined.
+- Authorized scheduler only.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
