@@ -1,90 +1,106 @@
-# dto specification
+# DTO Specification
+
+**Document ID:** LOS-DAT-DTO-001
 
 **Status:** Draft
+
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete persistence specification.
+Data Transfer Objects (DTOs) define the contract for exchanging data between application boundaries without exposing internal domain entities.
 
 ---
 
-# Ownership
+# Responsibilities
 
-Specify the owner of this data object.
-
----
-
-# Structure
-
-To be defined.
+- Carry validated data.
+- Separate API contracts from domain entities.
+- Support serialization.
+- Support versioning.
+- Remain immutable after creation.
 
 ---
 
-# Fields
+# DTO Categories
 
-To be defined.
+- Request DTOs
+- Response DTOs
+- Command DTOs
+- Query DTOs
+- Event DTOs
+- Integration DTOs
+
+---
+
+# Standard Fields
+
+- requestId
+- userId
+- timestamp
+- version
+- payload
 
 ---
 
 # Validation Rules
 
-To be defined.
+- Required fields cannot be empty.
+- Payload must satisfy schema validation.
+- Unknown fields are rejected.
+- Version must be supported.
 
 ---
 
-# Relationships
+# Serialization
 
-To be defined.
-
----
-
-# Lifecycle
-
-- Create
-- Read
-- Update
-- Delete
-- Archive
+- UTF-8 encoding.
+- JSON format.
+- ISO-8601 timestamps.
+- UUID identifiers.
 
 ---
 
-# Indexing Strategy
+# Versioning
 
-To be defined.
-
----
-
-# Repository Operations
-
-To be defined.
+- Backward compatible whenever possible.
+- Breaking changes require a new DTO version.
+- Deprecated DTOs remain supported until removal policy.
 
 ---
 
 # Constraints
 
-To be defined.
+- DTOs contain no business logic.
+- DTOs contain no persistence logic.
+- DTOs are transport objects only.
+
+---
+
+# Performance
+
+- Lightweight objects.
+- Minimal payload size.
+- Efficient serialization.
 
 ---
 
 # Security
 
-To be defined.
-
----
-
-# Backup
-
-To be defined.
+- Sensitive fields excluded unless required.
+- Input validation mandatory.
+- Output sanitization mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Structure documented.
-- Ownership documented.
+The DTO Specification is complete only when:
+
+- Categories documented.
 - Validation documented.
-- Relationships documented.
-- Repository operations documented.
+- Serialization documented.
+- Versioning documented.
+- Security documented.
