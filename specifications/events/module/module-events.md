@@ -1,96 +1,144 @@
-# module events
+# Module Events
+
+**Document ID:** LOS-EVT-MOD-001
 
 **Status:** Draft
-**Owner:** Architecture Team
+
+**Owner:** Modules Team
 
 ---
 
 # Purpose
 
-Define the complete event specification.
+The Module Events specification defines all domain events emitted by business modules inside Life OS.
 
 ---
 
-# Event Definition
+# Event Categories
 
-Events represent facts that already happened inside or around Life OS.
-
----
-
-# Event Naming
-
-To be defined.
-
----
-
-# Event Schema
-
-- event_id
-- event_type
-- source
-- timestamp
-- correlation_id
-- causation_id
-- payload
-- metadata
+- Habit Events
+- Task Events
+- Goal Events
+- Worship Events
+- Health Events
+- Fitness Events
+- Learning Events
+- Finance Events
+- Family Events
+- Work Events
 
 ---
 
-# Producers
+# Standard Events
 
-To be defined.
+## Entity Created
 
----
+### Trigger
 
-# Consumers
+A new business entity is successfully created.
 
-To be defined.
+### Payload
 
----
-
-# Payload
-
-To be defined.
-
----
-
-# Processing
-
-To be defined.
+- entityId
+- entityType
+- userId
+- createdAt
 
 ---
 
-# Storage
+## Entity Updated
 
-To be defined.
+### Trigger
+
+A business entity is modified.
+
+### Payload
+
+- entityId
+- entityType
+- userId
+- updatedAt
 
 ---
 
-# Retention
+## Entity Completed
 
-To be defined.
+### Trigger
+
+A business process reaches completion.
+
+### Payload
+
+- entityId
+- entityType
+- completedAt
 
 ---
 
-# Error Handling
+## Entity Archived
 
-To be defined.
+### Trigger
+
+An entity is archived.
+
+### Payload
+
+- entityId
+- entityType
+- archivedAt
+
+---
+
+## Statistics Updated
+
+### Trigger
+
+Business statistics are recalculated.
+
+### Payload
+
+- module
+- statisticsVersion
+- calculatedAt
+
+---
+
+## Progress Updated
+
+### Trigger
+
+Progress value changes.
+
+### Payload
+
+- entityId
+- previousValue
+- currentValue
+- updatedAt
+
+---
+
+# Event Rules
+
+- Events follow the global Event Contract.
+- Events are immutable.
+- Payloads are versioned.
+- Event identifiers are globally unique.
 
 ---
 
 # Security
 
-- Events must not expose secrets.
-- Sensitive payloads must be protected.
-- Event access must follow authorization rules.
+- Only owning modules may publish module events.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Event names documented.
-- Schema documented.
-- Producers documented.
-- Consumers documented.
+The Module Events specification is complete only when:
+
+- Events documented.
 - Payloads documented.
-- Security rules documented.
+- Rules documented.
+- Security documented.
