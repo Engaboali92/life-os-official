@@ -52,7 +52,7 @@ External systems may be integrated whenever they provide better capabilities tha
 
 ---
 
-# Core Objectives
+# System Objectives
 
 - Organize life.
 - Reduce cognitive load.

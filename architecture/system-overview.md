@@ -53,7 +53,7 @@ Each layer communicates only through documented contracts.
 
 - User Interface
 - Application Services
-- Core Engine
+- Kernel
 - Business Modules
 - Data Layer
 - Automation Layer

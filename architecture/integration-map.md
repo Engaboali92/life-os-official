@@ -18,7 +18,7 @@ It establishes the architectural boundaries between the platform and third-party
 
 # Integration Principle
 
-External systems are adapters, not part of the Life OS Core.
+External systems are adapters, not part of the Life OS Kernel.
 
 The platform shall remain independent from any specific external technology.
 
@@ -89,5 +89,5 @@ Examples:
 
 # Future Integrations
 
-Additional integrations may be added without changing the Core Architecture, provided they comply with the platform contracts.
+Additional integrations may be added without changing the Kernel Architecture, provided they comply with the platform contracts.
 

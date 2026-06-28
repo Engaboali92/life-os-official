@@ -22,7 +22,7 @@ Each layer has a single responsibility and communicates only through documented 
 2. Command Layer
 3. Application Layer
 4. Module Layer
-5. Core Layer
+5. Kernel Layer
 6. Data Layer
 7. Automation Layer
 8. Integration Layer
@@ -56,7 +56,7 @@ Contains all business domains such as Worship, Health, Finance, Work, Learning, 
 
 ---
 
-## Core Layer
+## Kernel Layer
 
 Provides shared business rules, utilities, validation, scheduling, calculations, and common services.
 

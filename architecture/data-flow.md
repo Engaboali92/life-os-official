@@ -41,7 +41,7 @@ Application Layer
 Module Layer
         │
         ▼
-Core Layer
+Kernel Layer
         │
         ▼
 Data Layer

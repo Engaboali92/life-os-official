@@ -34,7 +34,7 @@ This layer must not contain user interface logic, command routing, application w
 - Validate domain-specific operations.
 - Manage domain state.
 - Produce domain events.
-- Request shared services from the Core Layer.
+- Request shared services from the Kernel Layer.
 - Request persistence through the Data Layer.
 
 ---
@@ -76,7 +76,7 @@ Cross-module validation belongs to the Application Layer.
 
 # Dependencies
 
-- Core Layer.
+- Kernel Layer.
 - Data Layer.
 
 ---
@@ -111,7 +111,7 @@ Examples:
 
 Each module owns only its own business data.
 
-Shared data belongs to the Core Layer or Data Layer.
+Shared data belongs to the Kernel Layer or Data Layer.
 
 ---
 
@@ -125,7 +125,7 @@ Business rule violations must return structured domain errors.
 
 - Modules must not communicate directly with one another.
 - Modules must not access external systems directly.
-- Shared functionality belongs to the Core Layer.
+- Shared functionality belongs to the Kernel Layer.
 
 ---
 
@@ -148,7 +148,7 @@ Each module enforces authorization for its own operations.
 ## Integration Tests
 
 - Application Layer interaction.
-- Core Layer interaction.
+- Kernel Layer interaction.
 - Data Layer interaction.
 
 ---

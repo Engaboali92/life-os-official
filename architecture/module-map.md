@@ -88,5 +88,5 @@ Additional modules may be added provided they satisfy the architectural rules an
 
 Modules must not depend directly on one another.
 
-Shared functionality shall be provided through the Core Layer.
+Shared functionality shall be provided through the Kernel Layer.
 
