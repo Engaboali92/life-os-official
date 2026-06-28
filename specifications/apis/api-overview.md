@@ -1,113 +1,111 @@
-# api overview
+# API Overview
+
+**Document ID:** LOS-API-001
 
 **Status:** Draft
+
 **Owner:** Integration Team
 
 ---
 
 # Purpose
 
-Define the complete API specification.
+The API layer exposes all public capabilities of Life OS through stable, versioned, and technology-independent interfaces.
 
 ---
 
-# Endpoint
+# Design Principles
 
-To be defined.
-
----
-
-# Method
-
-To be defined.
-
----
-
-# Authentication
-
-To be defined.
+- API-first architecture.
+- Stateless communication.
+- Resource-oriented design.
+- Versioned contracts.
+- Deterministic responses.
+- Idempotent operations where applicable.
 
 ---
 
-# Authorization
+# API Categories
 
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
-
----
-
-# Request Parameters
-
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
-
----
-
-# Processing
-
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
-
----
-
-# Success Response
-
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
-
----
-
-# Rate Limits
-
-To be defined.
+- Authentication API
+- User API
+- Habit API
+- Task API
+- Goal API
+- Worship API
+- Health API
+- Fitness API
+- Learning API
+- Finance API
+- Family API
+- Work API
+- Report API
+- Archive API
+- Automation API
 
 ---
 
 # Versioning
 
-To be defined.
+- URI versioning.
+- Current version: v1.
+- Breaking changes require a new major version.
+
+---
+
+# Request Format
+
+- JSON
+- UTF-8
+- ISO-8601 timestamps
+- UUID identifiers
+
+---
+
+# Response Format
+
+- Success response
+- Error response
+- Pagination metadata when applicable
+
+---
+
+# Error Model
+
+- ValidationError
+- AuthenticationError
+- AuthorizationError
+- ResourceNotFound
+- ConflictError
+- InternalServerError
 
 ---
 
 # Security
 
 - Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
+- Authorization enforced.
+- HTTPS only.
+- Audit logging mandatory.
+
+---
+
+# Performance
+
+- Pagination supported.
+- Compression supported.
+- Rate limiting supported.
+- Idempotency supported where applicable.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint documented.
-- Authentication documented.
-- Validation documented.
-- Responses documented.
-- Errors documented.
+The API Overview is complete only when:
+
+- Categories documented.
+- Versioning documented.
+- Request format documented.
+- Response format documented.
+- Error model documented.
 - Security documented.
