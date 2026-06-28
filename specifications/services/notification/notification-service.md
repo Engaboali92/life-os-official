@@ -1,92 +1,130 @@
-# notification service
+# Notification Service
+
+**Document ID:** LOS-SRV-NTF-001
 
 **Status:** Draft
-**Owner:** Backend Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Provide a reusable application capability.
+The Notification Service provides the application-facing business service responsible for generating, scheduling, delivering, and tracking notifications across Life OS.
+
+It coordinates notification workflows without owning persistence or infrastructure concerns.
 
 ---
 
 # Responsibilities
 
-- Execute reusable logic.
-- Coordinate lower-level operations.
-- Return deterministic results.
-- Never own business rules.
+- Validate notification requests.
+- Coordinate notification delivery.
+- Schedule notifications.
+- Publish notification events.
+- Track delivery status.
+- Return standardized service responses.
 
 ---
 
 # Public Operations
 
-To be defined.
+- CreateNotification
+- ScheduleNotification
+- SendNotification
+- CancelNotification
+- RetryNotification
+- MarkAsRead
+- GetNotification
+- ListNotifications
+- GetNotificationStatistics
+- DeleteNotification
 
 ---
 
 # Inputs
 
-To be defined.
+- Authenticated user context
+- Notification request DTO
+- Delivery configuration
+- System timestamp
 
 ---
 
 # Outputs
 
-To be defined.
-
----
-
-# Validation
-
-To be defined.
-
----
-
-# Internal Processing
-
-To be defined.
+- Service response
+- Delivery status
+- Validation errors
+- Domain events
 
 ---
 
 # Dependencies
 
-- Kernel
-- Data
-- Other documented services only
-
----
-
-# Events Produced
-
-To be defined.
+- Kernel Layer
+- Data Layer
+- Integration Layer
 
 ---
 
 # Error Handling
 
-To be defined.
+- Invalid request
+- Invalid recipient
+- Invalid schedule
+- Delivery failure
+- Persistence failure
+- Authorization failure
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Immediate notifications execute with low latency.
+- Scheduled notifications support queue processing.
+- Bulk delivery supports batching.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging required for all delivery operations.
+
+---
+
+# Testing
+
+## Unit Tests
+
+- Validation
+- Scheduling
+- Delivery routing
+
+---
+
+## Integration Tests
+
+- Integration Layer interaction
+- Data persistence
+- Event publication
+
+---
+
+## System Tests
+
+- End-to-end notification lifecycle
 
 ---
 
 # Acceptance Criteria
 
-- Operations documented.
-- Inputs documented.
-- Outputs documented.
-- Dependencies documented.
-- Events documented.
-- Errors documented.
+The Notification Service is complete only when:
+
+- Operations documented
+- Dependencies documented
+- Error handling documented
+- Tests passed
+- Documentation approved
