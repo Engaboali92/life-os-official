@@ -1,4 +1,12 @@
-# create task workflow
+#!/usr/bin/env bash
+set -e
+
+find specifications/workflows -name "*.md" | while read -r f; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Automation Team
@@ -97,3 +105,12 @@ To be defined.
 - Outputs documented.
 - Events documented.
 - Errors documented.
+EOT
+
+done
+
+git add specifications/workflows scripts/fill-level7-detailed-workflows.sh
+git commit -m "docs: add detailed workflow specifications"
+git push
+git tag v7.2-detailed-workflows
+git push origin v7.2-detailed-workflows

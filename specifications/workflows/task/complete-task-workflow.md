@@ -1,71 +1,99 @@
 # complete task workflow
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the workflow for complete task workflow.
+Define the complete workflow specification.
 
 ---
 
 # Trigger
 
-Describe what starts this workflow.
+To be defined.
+
+---
+
+# Preconditions
+
+To be defined.
 
 ---
 
 # Inputs
 
-- Command
-- Event
-- Schedule
-- External trigger
+To be defined.
 
 ---
 
-# Steps
+# Workflow Steps
 
 1. Receive trigger
 2. Validate request
-3. Call required layer or service
-4. Persist result if needed
-5. Emit event
-6. Return or log result
+3. Execute business operation
+4. Persist data if required
+5. Publish events
+6. Execute automation
+7. Produce response
+
+---
+
+# Decision Points
+
+To be defined.
 
 ---
 
 # Outputs
 
-- Workflow result
-- Event
-- Log
-- Notification when required
+To be defined.
+
+---
+
+# Produced Events
+
+To be defined.
+
+---
+
+# External Integrations
+
+To be defined.
 
 ---
 
 # Error Handling
 
-- Invalid input returns structured error.
-- Failed step logs error.
-- Retry only when explicitly configured.
+To be defined.
 
 ---
 
-# Rules
+# Retry Strategy
 
-- Workflow must not own business logic.
-- Business behavior belongs to modules.
-- Shared behavior belongs to Kernel.
+To be defined.
+
+---
+
+# Performance Requirements
+
+To be defined.
+
+---
+
+# Security
+
+To be defined.
 
 ---
 
 # Acceptance Criteria
 
-- Trigger defined.
-- Steps defined.
-- Outputs defined.
-- Errors defined.
-- Tests defined.
+- Trigger documented.
+- Inputs documented.
+- Steps documented.
+- Outputs documented.
+- Events documented.
+- Errors documented.
