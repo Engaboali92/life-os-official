@@ -1,90 +1,106 @@
-# hauit entity
+# Habit Entity
+
+**Document ID:** LOS-DAT-ENT-002
 
 **Status:** Draft
+
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete persistence specification.
+The Habit entity represents a recurring activity tracked by Life OS.
+
+It is the canonical source for habit configuration and lifecycle management.
 
 ---
 
-# Ownership
+# Responsibilities
 
-Specify the owner of this data object.
-
----
-
-# Structure
-
-To be defined.
+- Store habit definition.
+- Store recurrence configuration.
+- Track habit state.
+- Support statistics generation.
+- Support historical reporting.
 
 ---
 
-# Fields
+# Attributes
 
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
+| Name | Type | Required |
+|------|------|----------|
+| id | UUID | Yes |
+| userId | UUID | Yes |
+| title | String | Yes |
+| description | String | No |
+| category | String | Yes |
+| frequency | String | Yes |
+| targetValue | Integer | No |
+| unit | String | No |
+| status | Enum | Yes |
+| createdAt | Timestamp | Yes |
+| updatedAt | Timestamp | Yes |
+| archivedAt | Timestamp | No |
 
 ---
 
 # Relationships
 
-To be defined.
-
----
-
-# Lifecycle
-
-- Create
-- Read
-- Update
-- Delete
-- Archive
-
----
-
-# Indexing Strategy
-
-To be defined.
-
----
-
-# Repository Operations
-
-To be defined.
+- Belongs to User
+- Produces Habit Logs
+- Produces Statistics
+- Generates Domain Events
 
 ---
 
 # Constraints
 
-To be defined.
+- Identifier is immutable.
+- Title is required.
+- Frequency must be valid.
+- Archived habits are read-only.
+
+---
+
+# Validation Rules
+
+- Required fields cannot be empty.
+- Frequency must match supported schedules.
+- Target value must be positive when provided.
+- Category must exist.
+
+---
+
+# Lifecycle
+
+Created
+
+↓
+
+Active
+
+↓
+
+Paused
+
+↓
+
+Archived
 
 ---
 
 # Security
 
-To be defined.
-
----
-
-# Backup
-
-To be defined.
+- Accessible only by the owning user.
+- Audit logging required.
+- Ownership cannot change.
 
 ---
 
 # Acceptance Criteria
 
-- Structure documented.
-- Ownership documented.
-- Validation documented.
+- Attributes documented.
 - Relationships documented.
-- Repository operations documented.
+- Validation documented.
+- Constraints documented.
