@@ -1,90 +1,107 @@
-# goal entity
+# Goal Entity
+
+**Document ID:** LOS-DAT-ENT-004
 
 **Status:** Draft
+
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete persistence specification.
+The Goal entity represents a measurable objective managed by Life OS.
+
+It serves as the canonical source for long-term planning, progress tracking, and achievement management.
 
 ---
 
-# Ownership
+# Responsibilities
 
-Specify the owner of this data object.
-
----
-
-# Structure
-
-To be defined.
+- Store goal definition.
+- Store progress state.
+- Track milestones.
+- Support reporting.
+- Support analytics.
 
 ---
 
-# Fields
+# Attributes
 
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
+| Name | Type | Required |
+|------|------|----------|
+| id | UUID | Yes |
+| userId | UUID | Yes |
+| title | String | Yes |
+| description | String | No |
+| category | String | Yes |
+| targetValue | Decimal | No |
+| currentValue | Decimal | No |
+| unit | String | No |
+| status | Enum | Yes |
+| dueAt | Timestamp | No |
+| completedAt | Timestamp | No |
+| createdAt | Timestamp | Yes |
+| updatedAt | Timestamp | Yes |
+| archivedAt | Timestamp | No |
 
 ---
 
 # Relationships
 
-To be defined.
-
----
-
-# Lifecycle
-
-- Create
-- Read
-- Update
-- Delete
-- Archive
-
----
-
-# Indexing Strategy
-
-To be defined.
-
----
-
-# Repository Operations
-
-To be defined.
+- Belongs to User
+- Owns Tasks
+- Produces Goal Events
+- Produces Statistics
 
 ---
 
 # Constraints
 
-To be defined.
+- Identifier is immutable.
+- Title is required.
+- Archived goals are read-only.
+
+---
+
+# Validation Rules
+
+- Required fields cannot be empty.
+- Target value must be positive.
+- Current value cannot exceed target unless explicitly allowed.
+- Status transitions must follow lifecycle.
+
+---
+
+# Lifecycle
+
+Created
+
+↓
+
+Active
+
+↓
+
+Completed
+
+↓
+
+Archived
 
 ---
 
 # Security
 
-To be defined.
-
----
-
-# Backup
-
-To be defined.
+- Accessible only by the owning user.
+- Audit logging required.
+- Ownership cannot change.
 
 ---
 
 # Acceptance Criteria
 
-- Structure documented.
-- Ownership documented.
-- Validation documented.
+- Attributes documented.
 - Relationships documented.
-- Repository operations documented.
+- Validation documented.
+- Constraints documented.
