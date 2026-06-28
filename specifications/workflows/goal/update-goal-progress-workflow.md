@@ -1,99 +1,126 @@
-# update goal progress workflow
+# Update Goal Progress Workflow
+
+**Document ID:** LOS-WFL-GOL-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Update Goal Progress Workflow updates the progress of a goal, validates completion rules, recalculates statistics, and publishes the corresponding domain events.
 
 ---
 
 # Trigger
 
-To be defined.
+- Task completed.
+- Habit completed.
+- Manual goal update.
+- Automated progress calculation.
 
 ---
 
 # Preconditions
 
-To be defined.
+- User authenticated.
+- Goal exists.
+- Goal is active.
+- Progress update is valid.
 
 ---
 
 # Inputs
 
-To be defined.
+- User context
+- Goal identifier
+- Progress value
+- Update timestamp
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Receive progress update.
+2. Validate authentication.
+3. Validate goal state.
+4. Verify ownership.
+5. Validate progress value.
+6. Update goal progress.
+7. Determine completion state.
+8. Update statistics.
+9. Publish goal-progress-updated event.
+10. Persist changes.
+11. Return success response.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Goal already completed.
+- Invalid progress value.
+- Progress exceeds allowed limits.
 
 ---
 
 # Outputs
 
-To be defined.
+- Updated goal
+- Updated statistics
+- Completion state
+- Domain events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- goal-progress-updated
+- goal-completed
+- goal-statistics-updated
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Reject invalid progress.
+- Reject unauthorized access.
+- Roll back persistence failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Retry transient persistence failures only.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Complete under 200 ms excluding persistence.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
