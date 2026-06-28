@@ -1,4 +1,4 @@
-# application module contract
+# Application Module Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,51 @@
 
 # Purpose
 
-Define the official contract for application module contract.
+Defines how the Application Layer coordinates business modules.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Use case request
+- Workflow context
+- Validated command data
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Application Layer calls the appropriate module to execute domain behavior.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Domain request
+- Domain result
+- Domain error
+- Domain event
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Application Layer coordinates; modules own business rules.
+- Application Layer must not implement module internals.
+- Cross-module coordination belongs to Application Layer.
+
+---
+
+# Errors
+
+- Invalid use case
+- Module unavailable
+- Domain operation failed
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Module calls defined.
+- Domain boundaries preserved.
+- Errors documented.

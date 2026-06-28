@@ -1,4 +1,4 @@
-# module data contract
+# Module Data Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,53 @@
 
 # Purpose
 
-Define the official contract for module data contract.
+Defines how modules request persistence through the Data Layer.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Domain data
+- Read request
+- Write request
+- Update request
+- Delete request
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Data Layer persists or retrieves module data without owning business meaning.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Stored record
+- Retrieved record
+- Operation result
+- Data error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Modules must not access storage directly.
+- Data Layer owns persistence only.
+- Modules own business meaning.
+
+---
+
+# Errors
+
+- Invalid data shape
+- Storage unavailable
+- Record not found
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Data operations defined.
+- Storage bypass prohibited.
+- Errors documented.

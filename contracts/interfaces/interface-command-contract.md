@@ -1,4 +1,4 @@
-# interface command contract
+# Interface Command Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,52 @@
 
 # Purpose
 
-Define the official contract for interface command contract.
+Defines how the Interface Layer sends user requests to the Command Layer.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- User action
+- Form payload
+- Navigation request
+- UI command
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+The Interface Layer must convert user interaction into a structured command.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Command name
+- Command payload
+- Request metadata
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Interface must not call Application Layer directly.
+- Interface must not contain business logic.
+- Interface must not access data storage.
+- All user actions must pass through Command Layer.
+
+---
+
+# Errors
+
+- Invalid command format
+- Missing required payload
+- Unauthorized command source
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Command format defined.
+- Payload structure defined.
+- Error structure defined.

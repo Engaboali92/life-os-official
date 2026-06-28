@@ -1,4 +1,4 @@
-# kernel data contract
+# Kernel Data Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,51 @@
 
 # Purpose
 
-Define the official contract for kernel data contract.
+Defines how Kernel stores and retrieves system metadata.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Configuration data
+- System log
+- Event metadata
+- Permission metadata
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Kernel requests persistence for system-level metadata only.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Stored metadata
+- Retrieved metadata
+- System data error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Kernel must not store module business data.
+- Data Layer must abstract persistence.
+- System metadata must remain traceable.
+
+---
+
+# Errors
+
+- Metadata invalid
+- Storage unavailable
+- Permission denied
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Kernel data boundaries defined.
+- Module data excluded.
+- Errors documented.

@@ -1,4 +1,4 @@
-# automation application contract
+# Automation Application Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,50 @@
 
 # Purpose
 
-Define the official contract for automation application contract.
+Defines how Automation Layer triggers application use cases.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Scheduled trigger
+- Event trigger
+- Automation request
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Automation Layer calls Application Layer when business behavior is required.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Use case request
+- Automation result
+- Automation error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Automation must not own business logic.
+- Automation must not call modules directly.
+- Automation must use Application Layer for business operations.
+
+---
+
+# Errors
+
+- Invalid trigger
+- Use case failure
+- Retry exhausted
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Automation triggers defined.
+- Application entry points defined.
+- Errors documented.

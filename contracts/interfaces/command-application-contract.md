@@ -1,4 +1,4 @@
-# command application contract
+# Command Application Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,50 @@
 
 # Purpose
 
-Define the official contract for command application contract.
+Defines how the Command Layer routes validated commands to the Application Layer.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Validated command
+- Normalized payload
+- Request metadata
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Command Layer identifies the target use case and forwards it to Application Layer.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Use case request
+- Routing result
+- Command error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Command Layer must not execute business logic.
+- Command Layer must not call modules directly.
+- Command Layer must not access data storage.
+
+---
+
+# Errors
+
+- Unknown command
+- Invalid command structure
+- Unauthorized command
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Command routing defined.
+- Application handlers mapped.
+- Routing errors defined.

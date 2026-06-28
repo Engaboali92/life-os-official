@@ -1,4 +1,4 @@
-# integration infrastructure contract
+# Integration Infrastructure Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,52 @@
 
 # Purpose
 
-Define the official contract for integration infrastructure contract.
+Defines how Integration Layer uses Infrastructure services.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Runtime configuration
+- Network request
+- Secret request
+- Monitoring request
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Infrastructure provides runtime, secrets, monitoring, and connectivity support.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Runtime service
+- Secret value
+- Health status
+- Infrastructure error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Integration must not hardcode infrastructure.
+- Secrets must be managed by Infrastructure.
+- External connectivity must be monitored.
+
+---
+
+# Errors
+
+- Missing configuration
+- Secret unavailable
+- Network failure
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- Infrastructure dependencies defined.
+- Secrets protected.
+- Failures documented.

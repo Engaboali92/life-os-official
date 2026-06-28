@@ -1,4 +1,4 @@
-# automation integration contract
+# Automation Integration Contract
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,41 +7,50 @@
 
 # Purpose
 
-Define the official contract for automation integration contract.
+Defines how Automation Layer requests external communication through Integration Layer.
 
 ---
 
 # Inputs
 
-To be provided by the previous layer or component.
+- Notification request
+- Sync request
+- External workflow request
 
 ---
 
 # Processing
 
-Validate the request, preserve architectural boundaries, and pass structured data only.
+Integration Layer executes external communication and returns normalized result.
 
 ---
 
 # Outputs
 
-Structured result, error, or event.
+- Integration request
+- External result
+- Integration error
 
 ---
 
 # Rules
 
-- No direct bypass.
-- No hidden dependency.
-- No business logic outside its owner.
-- All communication must be documented.
+- Automation must not call external systems directly.
+- Integration Layer owns external adapters.
+- Secrets must not be exposed to workflows.
+
+---
+
+# Errors
+
+- External service unavailable
+- Invalid integration config
+- Authentication failure
 
 ---
 
 # Acceptance Criteria
 
-- Contract approved.
-- Inputs defined.
-- Outputs defined.
-- Errors defined.
-- Tests linked.
+- External calls routed through Integration.
+- Errors documented.
+- Secrets protected.
