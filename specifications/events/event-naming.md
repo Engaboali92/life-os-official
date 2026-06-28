@@ -1,96 +1,117 @@
-# event naming
+# Event Naming Convention
+
+**Document ID:** LOS-EVT-NAM-001
 
 **Status:** Draft
+
 **Owner:** Architecture Team
 
 ---
 
 # Purpose
 
-Define the complete event specification.
+This specification defines the naming rules for all domain events produced within Life OS.
+
+The objective is to guarantee consistency, readability, versioning, and interoperability across every layer.
 
 ---
 
-# Event Definition
+# Naming Principles
 
-Events represent facts that already happened inside or around Life OS.
-
----
-
-# Event Naming
-
-To be defined.
+- Event names use lowercase.
+- Words are separated by hyphens.
+- Names describe completed facts.
+- Names are stable over time.
+- Names are implementation-independent.
 
 ---
 
-# Event Schema
+# Standard Pattern
 
-- event_id
-- event_type
-- source
-- timestamp
-- correlation_id
-- causation_id
-- payload
-- metadata
+<domain>-<action>
 
----
+Examples:
 
-# Producers
-
-To be defined.
+- habit-created
+- habit-completed
+- task-created
+- task-completed
+- goal-completed
+- prayer-recorded
+- report-generated
+- archive-completed
 
 ---
 
-# Consumers
+# Allowed Actions
 
-To be defined.
-
----
-
-# Payload
-
-To be defined.
-
----
-
-# Processing
-
-To be defined.
-
----
-
-# Storage
-
-To be defined.
+- created
+- updated
+- deleted
+- completed
+- archived
+- restored
+- started
+- stopped
+- recorded
+- generated
+- calculated
+- published
+- synchronized
+- imported
+- exported
+- failed
+- cancelled
 
 ---
 
-# Retention
+# Naming Rules
 
-To be defined.
+- Use singular domain names.
+- Use past-tense actions.
+- Avoid abbreviations.
+- Avoid implementation details.
+- Avoid technology-specific names.
 
 ---
 
-# Error Handling
+# Versioning
 
-To be defined.
+- Event names remain stable.
+- Payloads may evolve through versioning.
+- Breaking changes require a new event version.
+
+---
+
+# Constraints
+
+- Event names are globally unique.
+- Event names are immutable after publication.
+- Duplicate meanings are prohibited.
+
+---
+
+# Validation
+
+- Event names follow the standard pattern.
+- Action must be from the approved list.
+- Domain must be registered.
 
 ---
 
 # Security
 
-- Events must not expose secrets.
-- Sensitive payloads must be protected.
-- Event access must follow authorization rules.
+- Only approved events may be published.
+- Audit logging required.
 
 ---
 
 # Acceptance Criteria
 
-- Event names documented.
-- Schema documented.
-- Producers documented.
-- Consumers documented.
-- Payloads documented.
-- Security rules documented.
+The Event Naming specification is complete only when:
+
+- Pattern documented.
+- Rules documented.
+- Validation documented.
+- Versioning documented.
+- Security documented.
