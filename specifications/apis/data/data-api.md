@@ -1,113 +1,100 @@
-# data api
+# Data API
+
+**Document ID:** LOS-API-DAT-001
 
 **Status:** Draft
-**Owner:** Integration Team
+
+**Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the complete API specification.
+The Data API exposes controlled access to persistent data services while preserving domain boundaries and repository abstraction.
 
 ---
 
-# Endpoint
+# Base Path
 
-To be defined.
-
----
-
-# Method
-
-To be defined.
+/api/v1/data
 
 ---
 
-# Authentication
+# Resources
 
-To be defined.
-
----
-
-# Authorization
-
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
+- users
+- habits
+- tasks
+- goals
+- logs
+- events
 
 ---
 
-# Request Parameters
+# Standard Operations
 
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
+- Create
+- Read
+- Update
+- Archive
+- List
+- Search
 
 ---
 
-# Processing
+# Request Rules
 
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
+- JSON payload
+- UUID identifiers
+- ISO-8601 timestamps
+- Schema validation required
 
 ---
 
-# Success Response
+# Response Rules
 
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
+- Consistent response envelope
+- Pagination metadata
+- Structured resource representation
+- Structured errors
 
 ---
 
-# Rate Limits
+# Error Codes
 
-To be defined.
-
----
-
-# Versioning
-
-To be defined.
+- 400 ValidationError
+- 401 AuthenticationError
+- 403 AuthorizationError
+- 404 ResourceNotFound
+- 409 ConflictError
+- 500 InternalServerError
 
 ---
 
 # Security
 
 - Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
+- Authorization enforced.
+- HTTPS required.
+- Audit logging mandatory.
+
+---
+
+# Performance
+
+- Pagination supported.
+- Filtering supported.
+- Sorting supported.
+- Compression supported.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint documented.
-- Authentication documented.
+The Data API is complete only when:
+
+- Resources documented.
+- Operations documented.
 - Validation documented.
-- Responses documented.
-- Errors documented.
+- Error model documented.
 - Security documented.
