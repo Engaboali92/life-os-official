@@ -1,113 +1,104 @@
-# module api
+# Module API
+
+**Document ID:** LOS-API-MOD-001
 
 **Status:** Draft
-**Owner:** Integration Team
+
+**Owner:** Modules Team
 
 ---
 
 # Purpose
 
-Define the complete API specification.
+The Module API exposes all business module operations through stable, versioned interfaces.
 
 ---
 
-# Endpoint
+# Base Path
 
-To be defined.
-
----
-
-# Method
-
-To be defined.
+/api/v1/modules
 
 ---
 
-# Authentication
+# Resources
 
-To be defined.
-
----
-
-# Authorization
-
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
+- habits
+- tasks
+- goals
+- worship
+- health
+- fitness
+- learning
+- finance
+- family
+- work
 
 ---
 
-# Request Parameters
+# Standard Operations
 
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
+- Create
+- Read
+- Update
+- Archive
+- List
+- Search
 
 ---
 
-# Processing
+# Request Rules
 
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
+- JSON payload
+- UUID identifiers
+- ISO-8601 timestamps
+- Validation before execution
 
 ---
 
-# Success Response
+# Response Rules
 
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
+- Consistent response envelope
+- Pagination metadata
+- Resource representation
+- Structured errors
 
 ---
 
-# Rate Limits
+# Error Codes
 
-To be defined.
-
----
-
-# Versioning
-
-To be defined.
+- 400 ValidationError
+- 401 AuthenticationError
+- 403 AuthorizationError
+- 404 ResourceNotFound
+- 409 ConflictError
+- 500 InternalServerError
 
 ---
 
 # Security
 
 - Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
+- Authorization enforced.
+- HTTPS required.
+- Audit logging mandatory.
+
+---
+
+# Performance
+
+- Pagination supported.
+- Filtering supported.
+- Sorting supported.
+- Compression supported.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint documented.
-- Authentication documented.
+The Module API is complete only when:
+
+- Resources documented.
+- Operations documented.
 - Validation documented.
-- Responses documented.
-- Errors documented.
+- Error model documented.
 - Security documented.
