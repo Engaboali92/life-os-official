@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: events, schedules, automation requests] --> B[Automation Layer]
+    B --> C[Validate Workflow]
+    C --> D[Execute Workflow]
+    D --> E[Call Application / Kernel / Data / Integration]
+    E --> F[Publish Result]
+    F --> G[Outputs: workflow result, notifications, logs, events]

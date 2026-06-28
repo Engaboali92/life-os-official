@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: validation, rules, events, config requests] --> B[Kernel Layer]
+    B --> C[System Validation]
+    C --> D[Rule Evaluation]
+    D --> E[Event Bus]
+    E --> F[Logging / Time / Config / Permissions]
+    F --> G[Outputs: validation result, events, logs, config, permission result]

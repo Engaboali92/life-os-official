@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: read, write, update, delete requests] --> B[Data Layer]
+    B --> C[Validate Data Operation]
+    C --> D[Select Data Adapter]
+    D --> E[Execute Storage Operation]
+    E --> F[Return Result]
+    F --> G[Outputs: stored data, retrieved data, operation result, errors]

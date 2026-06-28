@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: domain requests, domain events] --> B[Module Layer]
+    B --> C[Validate Domain Rules]
+    C --> D[Execute Business Logic]
+    D --> E[Update Domain State]
+    E --> F[Produce Domain Events]
+    F --> G[Outputs: domain result, events, validation failures]

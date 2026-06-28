@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: integration requests, external events, API calls] --> B[Integration Layer]
+    B --> C[Validate Config / Auth]
+    C --> D[Call External System]
+    D --> E[Transform Response]
+    E --> F[Return Normalized Result]
+    F --> G[Outputs: external response, status, integration errors]

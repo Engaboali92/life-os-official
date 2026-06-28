@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: validated commands, workflow requests] --> B[Application Layer]
+    B --> C[Identify Use Case]
+    C --> D[Coordinate Services]
+    D --> E[Call Modules / Kernel / Data]
+    E --> F[Return Structured Result]
+    F --> G[Outputs: use case result, errors, events]

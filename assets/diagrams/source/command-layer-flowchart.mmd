@@ -1,0 +1,6 @@
+flowchart LR
+    A[Inputs: user commands, system commands, API requests] --> B[Command Layer]
+    B --> C[Validate Command Structure]
+    C --> D[Normalize Payload]
+    D --> E[Route Command]
+    E --> F[Outputs: routed command, response, validation error]

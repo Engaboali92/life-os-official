@@ -1,0 +1,7 @@
+flowchart LR
+    A[Inputs: deployment, config, monitoring, backup requests] --> B[Infrastructure Layer]
+    B --> C[Deploy / Configure]
+    C --> D[Monitor Services]
+    D --> E[Backup / Recover]
+    E --> F[Report Status]
+    F --> G[Outputs: health reports, deployment results, backup reports]

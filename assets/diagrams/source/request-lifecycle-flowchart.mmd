@@ -1,0 +1,18 @@
+flowchart TD
+    A[User / External System] --> B[Interface Layer]
+    B --> C[Command Layer]
+    C --> D[Application Layer]
+    D --> E[Module Layer]
+    E --> F[Kernel Layer]
+    F --> G[Data Layer]
+    G --> H{Automation Required?}
+    H -- Yes --> I[Automation Layer]
+    I --> J{External Integration?}
+    H -- No --> K[Response]
+    J -- Yes --> L[Integration Layer]
+    J -- No --> K
+    L --> K
+    K --> D
+    D --> C
+    C --> B
+    B --> M[User Response]
