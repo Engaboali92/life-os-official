@@ -2,15 +2,10 @@
 
 set -euo pipefail
 
-echo
-echo "========================================="
-echo " Generator Retired"
-echo "========================================="
-echo
 echo "This generator has been retired."
-echo
-echo "All Level 3 module specifications are now maintained manually."
-echo
-echo "Regeneration is intentionally disabled."
-echo
+
+echo "Level 3 module specifications are now maintained manually."
+
+echo "Do not regenerate existing documentation."
+
 exit 0
