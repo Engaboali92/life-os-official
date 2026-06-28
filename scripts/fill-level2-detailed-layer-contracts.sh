@@ -1,4 +1,12 @@
-# data layer contract
+#!/usr/bin/env bash
+set -e
+
+for f in contracts/layers/*.md; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+  cat > "$f" <<EOT
+# $title
 
 **Status:** Draft  
 **Owner:** Architecture Team
@@ -7,7 +15,7 @@
 
 # Purpose
 
-Define the official architectural contract for the data layer contract.
+Define the official architectural contract for the $title.
 
 ---
 
@@ -93,3 +101,11 @@ This layer must be tested for:
 - Forbidden behavior documented
 - Error contract documented
 - Tests linked
+EOT
+done
+
+git add contracts/layers scripts/fill-level2-detailed-layer-contracts.sh
+git commit -m "docs: add detailed layer contracts"
+git push
+git tag v2.3-detailed-layer-contracts
+git push origin v2.3-detailed-layer-contracts
