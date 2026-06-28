@@ -1,113 +1,103 @@
-# integration api
+# Integration API
+
+**Document ID:** LOS-API-INT-001
 
 **Status:** Draft
+
 **Owner:** Integration Team
 
 ---
 
 # Purpose
 
-Define the complete API specification.
+The Integration API exposes controlled interfaces for exchanging data between Life OS and external systems.
 
 ---
 
-# Endpoint
+# Base Path
 
-To be defined.
-
----
-
-# Method
-
-To be defined.
+/api/v1/integrations
 
 ---
 
-# Authentication
+# Resources
 
-To be defined.
-
----
-
-# Authorization
-
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
+- providers
+- webhooks
+- imports
+- exports
+- synchronizations
+- connections
 
 ---
 
-# Request Parameters
+# Standard Operations
 
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
+- Connect
+- Disconnect
+- Import
+- Export
+- Synchronize
+- Retry
+- Read
+- List
 
 ---
 
-# Processing
+# Request Rules
 
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
+- JSON payload
+- UUID identifiers
+- ISO-8601 timestamps
+- Schema validation required
 
 ---
 
-# Success Response
+# Response Rules
 
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
+- Consistent response envelope
+- Synchronization metadata
+- Pagination metadata
+- Structured errors
 
 ---
 
-# Rate Limits
+# Error Codes
 
-To be defined.
-
----
-
-# Versioning
-
-To be defined.
+- 400 ValidationError
+- 401 AuthenticationError
+- 403 AuthorizationError
+- 404 ResourceNotFound
+- 409 ConflictError
+- 500 InternalServerError
 
 ---
 
 # Security
 
 - Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
+- Authorization enforced.
+- HTTPS required.
+- Webhook signature verification required.
+- Audit logging mandatory.
+
+---
+
+# Performance
+
+- Asynchronous synchronization supported.
+- Incremental synchronization supported.
+- Compression supported.
+- Retry supported.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint documented.
-- Authentication documented.
+The Integration API is complete only when:
+
+- Resources documented.
+- Operations documented.
 - Validation documented.
-- Responses documented.
-- Errors documented.
+- Error model documented.
 - Security documented.
