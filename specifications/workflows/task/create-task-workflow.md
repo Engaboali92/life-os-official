@@ -1,99 +1,114 @@
-# create task workflow
+# Create Task Workflow
+
+**Document ID:** LOS-WFL-TSK-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Create Task Workflow creates a new task, validates all business rules, persists the task, and publishes the corresponding domain events.
 
 ---
 
 # Trigger
 
-To be defined.
+User requests task creation.
 
 ---
 
 # Preconditions
 
-To be defined.
+- User authenticated.
+- Request payload is valid.
+- Required fields are present.
 
 ---
 
 # Inputs
 
-To be defined.
+- User context
+- Task request
+- Current timestamp
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Receive request.
+2. Validate authentication.
+3. Validate request payload.
+4. Validate business rules.
+5. Generate task identifier.
+6. Persist task.
+7. Publish task-created event.
+8. Return created task.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Missing required fields.
+- Duplicate task.
+- Invalid business rules.
 
 ---
 
 # Outputs
 
-To be defined.
+- Created task.
+- Domain event.
+- Execution summary.
 
 ---
 
 # Produced Events
 
-To be defined.
+- task-created
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Reject invalid requests.
+- Reject duplicate tasks.
+- Roll back persistence failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Retry transient persistence failures only.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Complete under 200 ms excluding persistence.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
