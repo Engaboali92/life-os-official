@@ -1,99 +1,123 @@
-# quarter archive workflow
+# Quarter Archive Workflow
+
+**Document ID:** LOS-WFL-ARC-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Quarter Archive Workflow archives completed records at the end of each quarter while preserving integrity, relationships, and audit history.
 
 ---
 
 # Trigger
 
-To be defined.
+Scheduled execution at the end of every calendar quarter.
 
 ---
 
 # Preconditions
 
-To be defined.
+- Scheduler authenticated.
+- Archive policy available.
+- No archive currently running.
 
 ---
 
 # Inputs
 
-To be defined.
+- Archive policy
+- Quarter identifier
+- System timestamp
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Start archive workflow.
+2. Validate archive policy.
+3. Lock archive execution.
+4. Identify eligible records.
+5. Archive business records.
+6. Archive logs.
+7. Archive events.
+8. Verify archive integrity.
+9. Publish archive-completed event.
+10. Persist archive metadata.
+11. Unlock archive execution.
+12. Complete workflow.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Existing archive.
+- Integrity verification failure.
+- Partial archive detection.
 
 ---
 
 # Outputs
 
-To be defined.
+- Archive metadata
+- Archived records count
+- Verification report
+- Domain events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- archive-started
+- archive-completed
+- archive-verified
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Roll back on archive failure.
+- Reject duplicate archive.
+- Log verification failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Retry transient persistence failures only.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Archive executes in batches.
+- Integrity verification required before completion.
 
 ---
 
 # Security
 
-To be defined.
+- Authorized scheduler only.
+- Audit logging mandatory.
+- Archived records become immutable.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
