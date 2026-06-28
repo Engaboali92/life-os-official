@@ -1,37 +1,59 @@
 # automation api
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Integration Team
 
 ---
 
 # Purpose
 
-Define the API specification for automation api.
+Define the complete API specification.
 
 ---
 
-# Scope
+# Endpoint
 
-APIs expose documented access to Life OS capabilities.
+To be defined.
 
 ---
 
-# Request
-
-## Method
+# Method
 
 To be defined.
 
-## Endpoint
+---
+
+# Authentication
 
 To be defined.
 
-## Headers
+---
+
+# Authorization
 
 To be defined.
 
-## Body
+---
+
+# Request Headers
+
+To be defined.
+
+---
+
+# Request Parameters
+
+To be defined.
+
+---
+
+# Request Body
+
+To be defined.
+
+---
+
+# Validation Rules
 
 To be defined.
 
@@ -39,37 +61,53 @@ To be defined.
 
 # Processing
 
-- Authenticate request
-- Validate request
-- Route to Command or Application Layer
-- Return structured response
+1. Authenticate request.
+2. Authorize request.
+3. Validate payload.
+4. Route to Command Layer.
+5. Execute use case.
+6. Return structured response.
 
 ---
 
-# Response
+# Success Response
 
-## Success
-
-Structured success response.
-
-## Error
-
-Structured error response.
+To be defined.
 
 ---
 
-# Rules
+# Error Responses
 
-- APIs must not bypass Command/Application flow.
-- APIs must not expose internal implementation.
-- APIs must not access database directly.
+To be defined.
+
+---
+
+# Rate Limits
+
+To be defined.
+
+---
+
+# Versioning
+
+To be defined.
+
+---
+
+# Security
+
+- Authentication required.
+- Authorization required.
+- Input validation required.
+- Sensitive fields protected.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint defined.
-- Request defined.
-- Response defined.
-- Errors defined.
-- Tests defined.
+- Endpoint documented.
+- Authentication documented.
+- Validation documented.
+- Responses documented.
+- Errors documented.
+- Security documented.

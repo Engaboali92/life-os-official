@@ -1,4 +1,12 @@
-# module api
+#!/usr/bin/env bash
+set -e
+
+find specifications/apis -name "*.md" | while read -r f; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Integration Team
@@ -111,3 +119,12 @@ To be defined.
 - Responses documented.
 - Errors documented.
 - Security documented.
+EOT
+
+done
+
+git add specifications/apis scripts/fill-level8-detailed-apis.sh
+git commit -m "docs: add detailed api specifications"
+git push
+git tag v8.3-detailed-apis
+git push origin v8.3-detailed-apis
