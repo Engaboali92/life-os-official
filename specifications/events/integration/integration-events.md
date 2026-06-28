@@ -1,96 +1,154 @@
-# integration events
+# Integration Events
+
+**Document ID:** LOS-EVT-INT-001
 
 **Status:** Draft
-**Owner:** Architecture Team
+
+**Owner:** Integration Team
 
 ---
 
 # Purpose
 
-Define the complete event specification.
+The Integration Events specification defines all events exchanged between Life OS and external systems.
 
 ---
 
-# Event Definition
+# Event Categories
 
-Events represent facts that already happened inside or around Life OS.
+- Incoming Events
+- Outgoing Events
+- Synchronization Events
+- Webhook Events
+- Import Events
+- Export Events
 
 ---
 
-# Event Naming
+# Standard Events
 
-To be defined.
+## Integration Requested
+
+### Trigger
+
+An external integration operation is requested.
+
+### Payload
+
+- integrationId
+- provider
+- requestedAt
 
 ---
 
-# Event Schema
+## Integration Started
 
-- event_id
-- event_type
+### Trigger
+
+Synchronization begins.
+
+### Payload
+
+- integrationId
+- provider
+- startedAt
+
+---
+
+## Integration Completed
+
+### Trigger
+
+Synchronization completed successfully.
+
+### Payload
+
+- integrationId
+- provider
+- completedAt
+- processedRecords
+
+---
+
+## Integration Failed
+
+### Trigger
+
+Synchronization fails.
+
+### Payload
+
+- integrationId
+- provider
+- errorCode
+- failedAt
+
+---
+
+## Webhook Received
+
+### Trigger
+
+External webhook received.
+
+### Payload
+
+- provider
+- eventType
+- receivedAt
+
+---
+
+## Data Imported
+
+### Trigger
+
+Import completed.
+
+### Payload
+
 - source
-- timestamp
-- correlation_id
-- causation_id
-- payload
-- metadata
+- importedRecords
+- completedAt
 
 ---
 
-# Producers
+## Data Exported
 
-To be defined.
+### Trigger
 
----
+Export completed.
 
-# Consumers
+### Payload
 
-To be defined.
-
----
-
-# Payload
-
-To be defined.
+- destination
+- exportedRecords
+- completedAt
 
 ---
 
-# Processing
+# Event Rules
 
-To be defined.
-
----
-
-# Storage
-
-To be defined.
-
----
-
-# Retention
-
-To be defined.
-
----
-
-# Error Handling
-
-To be defined.
+- Events follow the global Event Contract.
+- Events are immutable.
+- Payloads are versioned.
+- Integration identifiers are globally unique.
 
 ---
 
 # Security
 
-- Events must not expose secrets.
-- Sensitive payloads must be protected.
-- Event access must follow authorization rules.
+- Events accepted only from trusted integrations.
+- Payload verification required.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Event names documented.
-- Schema documented.
-- Producers documented.
-- Consumers documented.
+The Integration Events specification is complete only when:
+
+- Events documented.
 - Payloads documented.
-- Security rules documented.
+- Rules documented.
+- Security documented.
