@@ -1,96 +1,164 @@
-# system events
+# System Events
+
+**Document ID:** LOS-EVT-SYS-001
 
 **Status:** Draft
-**Owner:** Architecture Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete event specification.
+The System Events specification defines infrastructure-independent events representing system-level operations across Life OS.
 
 ---
 
-# Event Definition
+# Event Categories
 
-Events represent facts that already happened inside or around Life OS.
-
----
-
-# Event Naming
-
-To be defined.
-
----
-
-# Event Schema
-
-- event_id
-- event_type
-- source
-- timestamp
-- correlation_id
-- causation_id
-- payload
-- metadata
+- System Startup
+- System Shutdown
+- Health Check
+- Backup Completed
+- Restore Completed
+- Archive Completed
+- Migration Completed
+- Configuration Updated
 
 ---
 
-# Producers
+# Event Definitions
 
-To be defined.
+## system-started
 
----
+### Trigger
 
-# Consumers
+System initialization completed successfully.
 
-To be defined.
+### Payload
 
----
-
-# Payload
-
-To be defined.
+- instanceId
+- version
+- startedAt
 
 ---
 
-# Processing
+## system-shutdown
 
-To be defined.
+### Trigger
 
----
+System shutdown completed.
 
-# Storage
+### Payload
 
-To be defined.
-
----
-
-# Retention
-
-To be defined.
+- instanceId
+- stoppedAt
+- reason
 
 ---
 
-# Error Handling
+## health-check-completed
 
-To be defined.
+### Trigger
+
+Health monitoring execution completed.
+
+### Payload
+
+- status
+- duration
+- checkedAt
+
+---
+
+## backup-completed
+
+### Trigger
+
+Backup completed successfully.
+
+### Payload
+
+- backupId
+- size
+- completedAt
+
+---
+
+## restore-completed
+
+### Trigger
+
+Restore operation completed.
+
+### Payload
+
+- backupId
+- restoredAt
+
+---
+
+## archive-completed
+
+### Trigger
+
+Archive workflow completed.
+
+### Payload
+
+- archiveId
+- archivedRecords
+- completedAt
+
+---
+
+## migration-completed
+
+### Trigger
+
+Database migration completed.
+
+### Payload
+
+- migrationVersion
+- completedAt
+
+---
+
+## configuration-updated
+
+### Trigger
+
+System configuration changed.
+
+### Payload
+
+- configurationId
+- updatedAt
+
+---
+
+# Event Rules
+
+- Events are immutable.
+- Events are append-only.
+- Payload follows the Event Contract.
+- Event identifiers are globally unique.
 
 ---
 
 # Security
 
-- Events must not expose secrets.
-- Sensitive payloads must be protected.
-- Event access must follow authorization rules.
+- System events are generated only by trusted services.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
-- Event names documented.
-- Schema documented.
-- Producers documented.
-- Consumers documented.
+The System Events specification is complete only when:
+
+- Events documented.
 - Payloads documented.
-- Security rules documented.
+- Rules documented.
+- Security documented.
