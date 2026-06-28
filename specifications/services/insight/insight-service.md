@@ -1,92 +1,138 @@
-# insight service
+# Insight Service
+
+**Document ID:** LOS-SRV-INS-001
 
 **Status:** Draft
-**Owner:** Backend Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Provide a reusable application capability.
+The Insight Service provides the application-facing business service responsible for generating analytical insights, trends, recommendations, and performance indicators across Life OS.
+
+It coordinates insight generation without owning persistence or infrastructure concerns.
 
 ---
 
 # Responsibilities
 
-- Execute reusable logic.
-- Coordinate lower-level operations.
-- Return deterministic results.
-- Never own business rules.
+- Validate insight requests.
+- Aggregate domain data.
+- Generate trends.
+- Generate recommendations.
+- Calculate performance indicators.
+- Publish insight events.
+- Return standardized service responses.
 
 ---
 
 # Public Operations
 
-To be defined.
+- GenerateInsights
+- GenerateRecommendations
+- CalculateTrends
+- CalculateKPIs
+- GenerateSummary
+- GetInsight
+- ListInsights
+- RefreshInsights
+- ExportInsights
+- DeleteInsight
 
 ---
 
 # Inputs
 
-To be defined.
+- Authenticated user context
+- Insight request DTO
+- Analysis parameters
+- System timestamp
 
 ---
 
 # Outputs
 
-To be defined.
-
----
-
-# Validation
-
-To be defined.
-
----
-
-# Internal Processing
-
-To be defined.
+- Insight report
+- Recommendations
+- Trend analysis
+- Validation errors
+- Domain events
 
 ---
 
 # Dependencies
 
-- Kernel
-- Data
-- Other documented services only
-
----
-
-# Events Produced
-
-To be defined.
+- Life Module
+- Work Module
+- Finance Module
+- Health Module
+- Worship Module
+- Learning Module
+- Family Module
+- Fitness Module
+- Kernel Layer
+- Data Layer
 
 ---
 
 # Error Handling
 
-To be defined.
+- Invalid request
+- Insufficient data
+- Analysis failure
+- Persistence failure
+- Authorization failure
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Insight generation supports asynchronous execution.
+- Incremental recalculation supported.
+- Large datasets processed in batches.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging required.
+
+---
+
+# Testing
+
+## Unit Tests
+
+- Validation
+- Trend calculations
+- Recommendation generation
+
+---
+
+## Integration Tests
+
+- Module interaction
+- Data aggregation
+- Event publication
+
+---
+
+## System Tests
+
+- End-to-end insight generation
 
 ---
 
 # Acceptance Criteria
 
-- Operations documented.
-- Inputs documented.
-- Outputs documented.
-- Dependencies documented.
-- Events documented.
-- Errors documented.
+The Insight Service is complete only when:
+
+- Operations documented
+- Dependencies documented
+- Error handling documented
+- Tests passed
+- Documentation approved
