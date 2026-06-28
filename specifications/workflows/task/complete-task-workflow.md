@@ -1,99 +1,121 @@
-# complete task workflow
+# Complete Task Workflow
+
+**Document ID:** LOS-WFL-TSK-002
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Complete Task Workflow marks a task as completed, updates progress, recalculates related statistics, and publishes the corresponding domain events.
 
 ---
 
 # Trigger
 
-To be defined.
+User requests task completion.
 
 ---
 
 # Preconditions
 
-To be defined.
+- User authenticated.
+- Task exists.
+- Task is active.
+- Task is not already completed.
 
 ---
 
 # Inputs
 
-To be defined.
+- User context
+- Task identifier
+- Completion timestamp
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Receive completion request.
+2. Validate authentication.
+3. Validate task state.
+4. Verify task ownership.
+5. Mark task as completed.
+6. Update related goal progress if applicable.
+7. Recalculate statistics.
+8. Publish task-completed event.
+9. Persist changes.
+10. Return success response.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Task already completed.
+- Task archived.
+- Unauthorized request.
 
 ---
 
 # Outputs
 
-To be defined.
+- Updated task
+- Updated statistics
+- Updated goal progress
+- Domain events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- task-completed
+- goal-progress-updated
+- task-statistics-updated
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Reject duplicate completion.
+- Reject unauthorized access.
+- Roll back persistence failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Retry transient persistence failures only.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Complete under 200 ms excluding persistence.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
