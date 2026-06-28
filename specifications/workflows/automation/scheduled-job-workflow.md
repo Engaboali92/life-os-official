@@ -1,99 +1,131 @@
-# scheduled jou workflow
+# Scheduled Job Workflow
+
+**Document ID:** LOS-WFL-AUT-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Scheduled Job Workflow executes time-based automation jobs reliably, ensuring deterministic execution, retry handling, event publication, and execution auditing.
 
 ---
 
 # Trigger
 
-To be defined.
+- Scheduler reaches configured execution time.
+- Manual execution request.
+- Retry policy triggers re-execution.
 
 ---
 
 # Preconditions
 
-To be defined.
+- Scheduler operational.
+- Job enabled.
+- Job definition exists.
+- No conflicting execution lock.
 
 ---
 
 # Inputs
 
-To be defined.
+- Job identifier
+- Schedule metadata
+- Execution context
+- System timestamp
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Receive execution trigger.
+2. Validate scheduler state.
+3. Load job definition.
+4. Acquire execution lock.
+5. Validate execution window.
+6. Execute job.
+7. Capture execution result.
+8. Publish automation-completed event.
+9. Persist execution history.
+10. Release execution lock.
+11. Return execution summary.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Job disabled.
+- Execution already running.
+- Retry required.
+- Execution timeout.
 
 ---
 
 # Outputs
 
-To be defined.
+- Execution result
+- Execution history
+- Automation events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- automation-triggered
+- automation-started
+- automation-completed
+- automation-failed
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Abort invalid executions.
+- Retry transient failures.
+- Release execution lock on failure.
+- Persist failure details.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Exponential backoff.
+- Configurable retry limit.
+- Permanent failures stop retries.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Scheduler overhead under 100 ms.
+- Concurrent job execution supported.
+- Long-running jobs monitored.
 
 ---
 
 # Security
 
-To be defined.
+- Scheduler authorization required.
+- Execution audit logging mandatory.
+- Job definitions immutable during execution.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
