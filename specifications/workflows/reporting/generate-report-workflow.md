@@ -1,99 +1,124 @@
-# generate report workflow
+# Generate Report Workflow
+
+**Document ID:** LOS-WFL-RPT-001
 
 **Status:** Draft
+
 **Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Define the complete workflow specification.
+The Generate Report Workflow produces analytical and operational reports by aggregating data across Life OS modules.
 
 ---
 
 # Trigger
 
-To be defined.
+- User requests a report.
+- Scheduled reporting execution.
+- Automated reporting workflow.
 
 ---
 
 # Preconditions
 
-To be defined.
+- User authenticated.
+- Report definition exists.
+- Required data is available.
 
 ---
 
 # Inputs
 
-To be defined.
+- User context
+- Report type
+- Date range
+- Filter parameters
+- Output format
 
 ---
 
 # Workflow Steps
 
-1. Receive trigger
-2. Validate request
-3. Execute business operation
-4. Persist data if required
-5. Publish events
-6. Execute automation
-7. Produce response
+1. Receive report request.
+2. Validate authentication.
+3. Validate report parameters.
+4. Collect required data.
+5. Aggregate module results.
+6. Calculate statistics.
+7. Generate report document.
+8. Publish report-generated event.
+9. Persist report metadata.
+10. Return generated report.
 
 ---
 
 # Decision Points
 
-To be defined.
+- Unsupported report type.
+- Missing data.
+- Empty result set.
 
 ---
 
 # Outputs
 
-To be defined.
+- Generated report
+- Report metadata
+- Statistics
+- Domain events
+- Execution summary
 
 ---
 
 # Produced Events
 
-To be defined.
+- report-generated
+- report-exported
 
 ---
 
 # External Integrations
 
-To be defined.
+None
 
 ---
 
 # Error Handling
 
-To be defined.
+- Reject invalid parameters.
+- Abort on aggregation failure.
+- Roll back persistence failures.
 
 ---
 
 # Retry Strategy
 
-To be defined.
+- Retry transient persistence failures only.
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Large reports execute asynchronously.
+- Streaming supported for large exports.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging mandatory.
 
 ---
 
 # Acceptance Criteria
 
 - Trigger documented.
-- Inputs documented.
-- Steps documented.
+- Workflow documented.
 - Outputs documented.
 - Events documented.
 - Errors documented.
