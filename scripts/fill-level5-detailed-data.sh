@@ -1,4 +1,12 @@
-# log entity
+#!/usr/bin/env bash
+set -e
+
+find specifications/data -name "*.md" | while read -r f; do
+  name=$(basename "$f" .md)
+  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+cat > "$f" <<EOT
+# $title
 
 **Status:** Draft
 **Owner:** Data Team
@@ -88,3 +96,12 @@ To be defined.
 - Validation documented.
 - Relationships documented.
 - Repository operations documented.
+EOT
+
+done
+
+git add specifications/data scripts/fill-level5-detailed-data.sh
+git commit -m "docs: add detailed data specifications"
+git push
+git tag v5.2-detailed-data
+git push origin v5.2-detailed-data

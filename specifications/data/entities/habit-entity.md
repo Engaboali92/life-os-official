@@ -1,58 +1,90 @@
 # hauit entity
 
-**Status:** Draft  
+**Status:** Draft
 **Owner:** Data Team
 
 ---
 
 # Purpose
 
-Define the data specification for hauit entity.
+Define the complete persistence specification.
 
 ---
 
-# Scope
+# Ownership
 
-Describe data structure, ownership, persistence behavior, and access boundaries.
-
----
-
-# Inputs
-
-- Data operation request
-- Query request
-- Persistence request
+Specify the owner of this data object.
 
 ---
 
-# Processing
+# Structure
 
-- Validate data shape
-- Apply storage rules
-- Return normalized data result
+To be defined.
 
 ---
 
-# Outputs
+# Fields
 
-- Data record
-- Data collection
-- Operation result
-- Data error
+To be defined.
 
 ---
 
-# Rules
+# Validation Rules
 
-- Data Layer owns persistence, not business meaning.
-- Modules own business meaning.
-- Storage technology must remain replaceable.
+To be defined.
+
+---
+
+# Relationships
+
+To be defined.
+
+---
+
+# Lifecycle
+
+- Create
+- Read
+- Update
+- Delete
+- Archive
+
+---
+
+# Indexing Strategy
+
+To be defined.
+
+---
+
+# Repository Operations
+
+To be defined.
+
+---
+
+# Constraints
+
+To be defined.
+
+---
+
+# Security
+
+To be defined.
+
+---
+
+# Backup
+
+To be defined.
 
 ---
 
 # Acceptance Criteria
 
-- Fields defined.
-- Ownership defined.
-- Validation defined.
-- Repository behavior defined.
+- Structure documented.
+- Ownership documented.
+- Validation documented.
+- Relationships documented.
+- Repository operations documented.
