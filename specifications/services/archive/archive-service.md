@@ -1,92 +1,131 @@
-# archive service
+# Archive Service
+
+**Document ID:** LOS-SRV-ARC-001
 
 **Status:** Draft
-**Owner:** Backend Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Provide a reusable application capability.
+The Archive Service provides the application-facing business service responsible for archiving historical data while preserving integrity, consistency, and recoverability across Life OS.
+
+It coordinates archive operations without owning persistence or infrastructure concerns.
 
 ---
 
 # Responsibilities
 
-- Execute reusable logic.
-- Coordinate lower-level operations.
-- Return deterministic results.
-- Never own business rules.
+- Validate archive requests.
+- Coordinate archive workflows.
+- Move eligible records to archival storage.
+- Preserve referential integrity.
+- Publish archive events.
+- Return standardized service responses.
 
 ---
 
 # Public Operations
 
-To be defined.
+- ArchiveDailyData
+- ArchiveMonthlyData
+- ArchiveQuarterlyData
+- ArchiveYearlyData
+- ArchiveCustomPeriod
+- RestoreArchive
+- GetArchive
+- ListArchives
+- DeleteArchive
+- VerifyArchive
 
 ---
 
 # Inputs
 
-To be defined.
+- Authenticated user context
+- Archive request DTO
+- Archive policy
+- System timestamp
 
 ---
 
 # Outputs
 
-To be defined.
-
----
-
-# Validation
-
-To be defined.
-
----
-
-# Internal Processing
-
-To be defined.
+- Archive result
+- Archive metadata
+- Validation errors
+- Domain events
 
 ---
 
 # Dependencies
 
-- Kernel
-- Data
-- Other documented services only
-
----
-
-# Events Produced
-
-To be defined.
+- Kernel Layer
+- Data Layer
+- Report Service
 
 ---
 
 # Error Handling
 
-To be defined.
+- Invalid request
+- Invalid archive period
+- Archive already exists
+- Restore failure
+- Persistence failure
+- Authorization failure
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Archive operations support asynchronous execution.
+- Large archives execute incrementally.
+- Verification supports integrity checking.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging required.
+- Archived data is immutable.
+
+---
+
+# Testing
+
+## Unit Tests
+
+- Validation
+- Archive policy
+- Restore logic
+
+---
+
+## Integration Tests
+
+- Data persistence
+- Archive integrity
+- Event publication
+
+---
+
+## System Tests
+
+- End-to-end archive lifecycle
 
 ---
 
 # Acceptance Criteria
 
-- Operations documented.
-- Inputs documented.
-- Outputs documented.
-- Dependencies documented.
-- Events documented.
-- Errors documented.
+The Archive Service is complete only when:
+
+- Operations documented
+- Dependencies documented
+- Error handling documented
+- Tests passed
+- Documentation approved
