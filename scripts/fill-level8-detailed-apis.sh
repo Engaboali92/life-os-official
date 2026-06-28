@@ -1,130 +1,16 @@
 #!/usr/bin/env bash
-set -e
 
-find specifications/apis -name "*.md" | while read -r f; do
-  name=$(basename "$f" .md)
-  title=$(echo "$name" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+set -euo pipefail
 
-cat > "$f" <<EOT
-# $title
-
-**Status:** Draft
-**Owner:** Integration Team
-
----
-
-# Purpose
-
-Define the complete API specification.
-
----
-
-# Endpoint
-
-To be defined.
-
----
-
-# Method
-
-To be defined.
-
----
-
-# Authentication
-
-To be defined.
-
----
-
-# Authorization
-
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
-
----
-
-# Request Parameters
-
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
-
----
-
-# Validation Rules
-
-To be defined.
-
----
-
-# Processing
-
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
-
----
-
-# Success Response
-
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
-
----
-
-# Rate Limits
-
-To be defined.
-
----
-
-# Versioning
-
-To be defined.
-
----
-
-# Security
-
-- Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
-
----
-
-# Acceptance Criteria
-
-- Endpoint documented.
-- Authentication documented.
-- Validation documented.
-- Responses documented.
-- Errors documented.
-- Security documented.
-EOT
-
-done
-
-git add specifications/apis scripts/fill-level8-detailed-apis.sh
-git commit -m "docs: add detailed api specifications"
-git push
-git tag v8.3-detailed-apis
-git push origin v8.3-detailed-apis
+echo
+echo "========================================="
+echo " Generator Retired"
+echo "========================================="
+echo
+echo "This generator has been retired."
+echo
+echo "All Level 8 detailed API specifications are now maintained manually."
+echo
+echo "Regeneration is intentionally disabled."
+echo
+exit 0
