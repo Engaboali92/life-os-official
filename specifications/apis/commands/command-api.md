@@ -1,113 +1,104 @@
-# command api
+# Command API
+
+**Document ID:** LOS-API-CMD-001
 
 **Status:** Draft
-**Owner:** Integration Team
+
+**Owner:** Application Team
 
 ---
 
 # Purpose
 
-Define the complete API specification.
+The Command API exposes all state-changing operations within Life OS.
+
+Commands represent user intentions that modify the system state.
 
 ---
 
-# Endpoint
+# Base Path
 
-To be defined.
-
----
-
-# Method
-
-To be defined.
+/api/v1/commands
 
 ---
 
-# Authentication
+# Supported Commands
 
-To be defined.
-
----
-
-# Authorization
-
-To be defined.
-
----
-
-# Request Headers
-
-To be defined.
+- Create
+- Update
+- Complete
+- Archive
+- Restore
+- DeleteLogical
+- Execute
+- Cancel
 
 ---
 
-# Request Parameters
+# Command Rules
 
-To be defined.
-
----
-
-# Request Body
-
-To be defined.
+- Commands are immutable.
+- Every command has a unique identifier.
+- Commands execute exactly once whenever possible.
+- Commands are validated before execution.
+- Commands may publish domain events.
 
 ---
 
-# Validation Rules
+# Request Structure
 
-To be defined.
-
----
-
-# Processing
-
-1. Authenticate request.
-2. Authorize request.
-3. Validate payload.
-4. Route to Command Layer.
-5. Execute use case.
-6. Return structured response.
+- commandId
+- commandType
+- userId
+- timestamp
+- payload
 
 ---
 
-# Success Response
+# Response Structure
 
-To be defined.
-
----
-
-# Error Responses
-
-To be defined.
+- commandId
+- status
+- result
+- executionTime
+- errors
 
 ---
 
-# Rate Limits
+# Error Codes
 
-To be defined.
-
----
-
-# Versioning
-
-To be defined.
+- 400 ValidationError
+- 401 AuthenticationError
+- 403 AuthorizationError
+- 404 ResourceNotFound
+- 409 ConflictError
+- 500 InternalServerError
 
 ---
 
 # Security
 
 - Authentication required.
-- Authorization required.
-- Input validation required.
-- Sensitive fields protected.
+- Authorization enforced.
+- HTTPS required.
+- Audit logging mandatory.
+
+---
+
+# Performance
+
+- Idempotent execution supported.
+- Command timeout configurable.
+- Concurrent execution supported.
 
 ---
 
 # Acceptance Criteria
 
-- Endpoint documented.
-- Authentication documented.
-- Validation documented.
-- Responses documented.
-- Errors documented.
+The Command API is complete only when:
+
+- Commands documented.
+- Request structure documented.
+- Response structure documented.
+- Error model documented.
 - Security documented.
