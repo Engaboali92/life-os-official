@@ -1,92 +1,132 @@
-# schedule service
+# Schedule Service
+
+**Document ID:** LOS-SRV-SCH-001
 
 **Status:** Draft
-**Owner:** Backend Team
+
+**Owner:** Automation Team
 
 ---
 
 # Purpose
 
-Provide a reusable application capability.
+The Schedule Service provides the application-facing business service responsible for scheduling, executing, monitoring, and maintaining time-based operations across Life OS.
+
+It coordinates scheduled execution without owning persistence or infrastructure concerns.
 
 ---
 
 # Responsibilities
 
-- Execute reusable logic.
-- Coordinate lower-level operations.
-- Return deterministic results.
-- Never own business rules.
+- Validate scheduling requests.
+- Create schedules.
+- Update schedules.
+- Cancel schedules.
+- Trigger scheduled operations.
+- Publish scheduling events.
+- Return standardized service responses.
 
 ---
 
 # Public Operations
 
-To be defined.
+- CreateSchedule
+- UpdateSchedule
+- DeleteSchedule
+- EnableSchedule
+- DisableSchedule
+- ExecuteSchedule
+- GetSchedule
+- ListSchedules
+- GetExecutionHistory
+- RetryExecution
 
 ---
 
 # Inputs
 
-To be defined.
+- Authenticated user context
+- Schedule request DTO
+- Trigger configuration
+- System timestamp
 
 ---
 
 # Outputs
 
-To be defined.
-
----
-
-# Validation
-
-To be defined.
-
----
-
-# Internal Processing
-
-To be defined.
+- Service response
+- Schedule metadata
+- Execution result
+- Validation errors
+- Domain events
 
 ---
 
 # Dependencies
 
-- Kernel
-- Data
-- Other documented services only
-
----
-
-# Events Produced
-
-To be defined.
+- Automation Layer
+- Kernel Layer
+- Data Layer
 
 ---
 
 # Error Handling
 
-To be defined.
+- Invalid request
+- Invalid schedule
+- Invalid trigger
+- Execution failure
+- Persistence failure
+- Authorization failure
 
 ---
 
 # Performance Requirements
 
-To be defined.
+- Schedule creation under 200 ms excluding persistence.
+- Scheduler supports concurrent executions.
+- Retry mechanism supports exponential backoff.
 
 ---
 
 # Security
 
-To be defined.
+- Authentication required.
+- Authorization enforced.
+- Audit logging required for schedule changes and executions.
+
+---
+
+# Testing
+
+## Unit Tests
+
+- Validation
+- Scheduling logic
+- Retry logic
+
+---
+
+## Integration Tests
+
+- Automation Layer interaction
+- Data persistence
+- Event publication
+
+---
+
+## System Tests
+
+- End-to-end scheduling lifecycle
 
 ---
 
 # Acceptance Criteria
 
-- Operations documented.
-- Inputs documented.
-- Outputs documented.
-- Dependencies documented.
-- Events documented.
-- Errors documented.
+The Schedule Service is complete only when:
+
+- Operations documented
+- Dependencies documented
+- Error handling documented
+- Tests passed
+- Documentation approved
